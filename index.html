@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SYCO 07 HUB — Official home for YouTube, Instagram, Facebook and collaboration enquiries.">
+  <title>SYCO 07 HUB | Official</title>
+  <style>
+    :root{
+      --bg:#03050b; --card:rgba(10,15,28,.78); --line:rgba(70,125,255,.25);
+      --blue:#1769ff; --blue2:#55a0ff; --text:#f7f9ff; --muted:#aab5cc;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text); background:
+      radial-gradient(circle at 50% -10%, rgba(23,105,255,.25), transparent 38%),
+      radial-gradient(circle at 100% 60%, rgba(23,105,255,.10), transparent 35%), var(--bg);
+      min-height:100vh; overflow-x:hidden;
+    }
+    a{text-decoration:none;color:inherit}
+    .wrap{width:min(1100px,92%);margin:auto}
+    nav{
+      position:sticky;top:0;z-index:20;background:rgba(3,5,11,.72);
+      backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.07)
+    }
+    .navin{height:72px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-weight:900;letter-spacing:1.5px;font-size:20px}
+    .brand span{color:var(--blue2)}
+    .navlinks{display:flex;gap:24px;color:#d8e0f3;font-size:14px}
+    .navlinks a:hover{color:#fff}
+    .hero{min-height:calc(100vh - 72px);display:grid;place-items:center;text-align:center;padding:80px 0}
+    .logo{
+      width:min(260px,62vw);aspect-ratio:1;object-fit:cover;border-radius:50%;
+      box-shadow:0 0 45px rgba(23,105,255,.45),0 0 110px rgba(23,105,255,.14);
+      border:2px solid rgba(90,155,255,.55);margin-bottom:30px
+    }
+    .badge{
+      display:inline-flex;padding:8px 14px;border:1px solid var(--line);border-radius:999px;
+      background:rgba(23,105,255,.08);color:#b9d4ff;font-size:12px;letter-spacing:1.8px;
+      text-transform:uppercase;margin-bottom:18px
+    }
+    h1{font-size:clamp(48px,9vw,96px);line-height:.95;letter-spacing:-4px;font-weight:950}
+    h1 .accent{color:var(--blue2);text-shadow:0 0 35px rgba(85,160,255,.35)}
+    .hero p{max-width:650px;margin:24px auto 0;color:var(--muted);font-size:17px;line-height:1.7}
+    .buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{
+      padding:13px 19px;border-radius:12px;border:1px solid rgba(255,255,255,.12);
+      background:#0c1323;transition:.2s;font-weight:750;font-size:14px
+    }
+    .btn:hover{transform:translateY(-2px);border-color:rgba(85,160,255,.5)}
+    .btn.primary{background:linear-gradient(135deg,#1769ff,#1245b7);border-color:#438bff;box-shadow:0 10px 30px rgba(23,105,255,.22)}
+    section{padding:85px 0}
+    .section-title{text-align:center;margin-bottom:38px}
+    .section-title h2{font-size:38px;letter-spacing:-1px}
+    .section-title p{color:var(--muted);margin-top:10px}
+    .socials{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{
+      background:linear-gradient(145deg,rgba(14,22,40,.88),rgba(5,9,18,.85));
+      border:1px solid var(--line);border-radius:20px;padding:28px;text-align:center;
+      transition:.25s;box-shadow:0 15px 50px rgba(0,0,0,.22)
+    }
+    .card:hover{transform:translateY(-5px);border-color:rgba(85,160,255,.5)}
+    .icon{font-size:34px;margin-bottom:15px}
+    .card h3{font-size:20px;margin-bottom:8px}.card p{color:var(--muted);font-size:14px;line-height:1.6}
+    .card .visit{display:inline-block;margin-top:18px;color:#a9caff;font-weight:800;font-size:14px}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+    .stat{padding:28px;border-radius:18px;text-align:center;background:rgba(9,14,26,.72);border:1px solid rgba(255,255,255,.07)}
+    .stat strong{display:block;font-size:30px}.stat span{color:var(--muted);font-size:13px}
+    .collab{
+      text-align:center;padding:55px 25px;border-radius:28px;
+      background:radial-gradient(circle at center,rgba(23,105,255,.18),rgba(9,14,26,.75) 55%);
+      border:1px solid rgba(85,160,255,.25)
+    }
+    .collab h2{font-size:42px;letter-spacing:-1.5px}.collab p{color:var(--muted);max-width:650px;margin:14px auto 25px;line-height:1.7}
+    .email{font-size:18px;font-weight:850;word-break:break-word;color:#bcd7ff}
+    footer{border-top:1px solid rgba(255,255,255,.07);padding:28px 0;color:#7f8ba4;font-size:13px;text-align:center}
+    @media(max-width:760px){
+      .navlinks{display:none}.socials,.stats{grid-template-columns:1fr}
+      .hero{padding:65px 0}.collab h2{font-size:31px} h1{letter-spacing:-2px}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap navin">
+      <a class="brand" href="#top">SYCO <span>07</span> HUB</a>
+      <div class="navlinks">
+        <a href="#socials">Socials</a>
+        <a href="#about">About</a>
+        <a href="#collab">Collab</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <div class="wrap">
+        <img class="logo" src="syco07-logo.png" alt="SYCO 07 logo">
+        <div class="badge">Official Creator Hub</div>
+        <h1>SYCO <span class="accent">07</span></h1>
+        <p>One place for our videos, social media and business collaborations. Follow SYCO 07 and let's create something awesome together.</p>
+        <div class="buttons">
+          <a class="btn primary" href="https://youtube.com/@syco_07?si=03tg_pxwkwkmRCLA" target="_blank" rel="noopener">▶ YouTube</a>
+          <a class="btn" href="https://www.instagram.com/sy_co07?igsi=NDl5Z2wwMWl5MXd5" target="_blank" rel="noopener">◎ Instagram</a>
+          <a class="btn" href="https://www.facebook.com/share/1JWATLh9K4/?mibextid=wwXIfr" target="_blank" rel="noopener">f Facebook</a>
+        </div>
+      </div>
+    </header>
+
+    <section id="socials">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Find Us Everywhere</h2>
+          <p>Choose a platform and join the SYCO 07 community.</p>
+        </div>
+        <div class="socials">
+          <a class="card" href="https://youtube.com/@syco_07?si=03tg_pxwkwkmRCLA" target="_blank" rel="noopener">
+            <div class="icon">▶</div><h3>YouTube</h3><p>Watch our latest videos and subscribe to SYCO 07.</p><span class="visit">Visit Channel →</span>
+          </a>
+          <a class="card" href="https://www.instagram.com/sy_co07?igsi=NDl5Z2wwMWl5MXd5" target="_blank" rel="noopener">
+            <div class="icon">◎</div><h3>Instagram</h3><p>Follow our reels, updates, behind-the-scenes and more.</p><span class="visit">Visit Instagram →</span>
+          </a>
+          <a class="card" href="https://www.facebook.com/share/1JWATLh9K4/?mibextid=wwXIfr" target="_blank" rel="noopener">
+            <div class="icon">f</div><h3>Facebook</h3><p>Stay connected with SYCO 07 on Facebook.</p><span class="visit">Visit Facebook →</span>
+          </a>
+        </div>
+
+        <div class="stats" id="about">
+          <div class="stat"><strong>3+</strong><span>Years Creating</span></div>
+          <div class="stat"><strong>800+</strong><span>YouTube Subscribers</span></div>
+          <div class="stat"><strong>100+</strong><span>Instagram Followers</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="collab">
+      <div class="wrap">
+        <div class="collab">
+          <div class="badge">Business & Collaborations</div>
+          <h2>Let's Work Together.</h2>
+          <p>Interested in brand promotions, creator collaborations, app promotions or other business opportunities? Contact the SYCO 07 team by email.</p>
+          <a class="btn primary" href="mailto:sycobusiness07@gmail.com?subject=Collaboration%20Inquiry%20-%20SYCO%2007">📧 Email for Collaboration</a>
+          <div style="margin-top:18px" class="email">sycobusiness07@gmail.com</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 SYCO 07 HUB • Official Creator Hub
+  </footer>
+</body>
+</html>
