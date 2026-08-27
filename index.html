@@ -550,67 +550,43 @@
 
   <!-- LIVE YOUTUBE + INSTAGRAM COUNTER -->
 
-  <script>
-
-    const API_URL =
+<script>
+const API_URL =
   "https://script.google.com/macros/s/AKfycbx7YDx3bMcq_jW8TnnkKdr3G9THunmnEUB_r0yzfNIDVgITNINCKih_bzMDGv5l8zEQQQ/exec";
 
+async function updateCounters() {
+  try {
 
-    function updateCounters() {
+    const response = await fetch(API_URL, {
+      method: "GET",
+      cache: "no-store"
+    });
 
-      const callbackName =
-        "sycoCounter_" + Date.now();
+    const data = await response.json();
 
-
-      window[callbackName] = function(data) {
-
-        if (data.subscribers !== undefined) {
-
-          document.getElementById("subscriberCount").textContent =
-            Number(data.subscribers).toLocaleString() + "+";
-
-        }
-
-
-        if (data.followers !== undefined) {
-
-          document.getElementById("instagramCount").textContent =
-            Number(data.followers).toLocaleString() + "+";
-
-        }
-
-
-        delete window[callbackName];
-
-        if (script.parentNode) {
-          script.parentNode.removeChild(script);
-        }
-
-      };
-
-
-      const script =
-        document.createElement("script");
-
-      script.src =
-        API_URL +
-        "?callback=" +
-        callbackName;
-
-      document.body.appendChild(script);
-
+    if (data.subscribers !== undefined) {
+      document.getElementById("subscriberCount").textContent =
+        Number(data.subscribers).toLocaleString() + "+";
     }
 
+    if (data.followers !== undefined) {
+      document.getElementById("instagramCount").textContent =
+        Number(data.followers).toLocaleString() + "+";
+    }
 
-    updateCounters();
+  } catch (error) {
 
+    console.log("Counter error:", error);
 
-    setInterval(
-      updateCounters,
-      5 * 60 * 1000
-    );
+    document.getElementById("subscriberCount").textContent = "—";
+    document.getElementById("instagramCount").textContent = "—";
+  }
+}
 
-  </script>
+updateCounters();
+
+setInterval(updateCounters, 5 * 60 * 1000);
+</script>
 
 </body>
 </html>
