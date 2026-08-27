@@ -171,7 +171,12 @@
   <span>YouTube Subscribers</span>
   <small>● LIVE UPDATE</small>
 </div>
-          <div class="stat"><strong>100+</strong><span>Instagram Followers</span></div>
+          <div class="stat instagram-stat">
+  <div class="live-dot"></div>
+  <strong id="instagramCount">Loading...</strong>
+  <span>Instagram Followers</span>
+  <small>● LIVE UPDATE</small>
+</div>
         </div>
       </div>
     </section>
@@ -212,10 +217,26 @@ async function updateSubscribers() {
   }
 }
 
-updateSubscribers();
-setInterval(updateSubscribers, 5 * 60 * 1000);
-</script>
+<script>
+const API_URL = "https://script.google.com/macros/s/AKfycbxTc61_VACO9Cf42oOnZ6hwT0OpyVT2VIZhmaNq4NQzOP_lnvHHav8Z9864e3mX4J6Fdw/exec";
 
+function updateCounters() {
+  fetch(API_URL)
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("subscriberCount").textContent =
+        Number(data.subscribers).toLocaleString() + "+";
+
+      document.getElementById("instagramCount").textContent =
+        Number(data.followers).toLocaleString() + "+";
+    })
+    .catch(error => {
+      console.log("Counter error:", error);
+    });
+}
+
+updateCounters();
+setInterval(updateCounters, 5 * 60 * 1000);
+</script>
 </body>
 </html>
-
