@@ -221,18 +221,26 @@ async function updateSubscribers() {
 const API_URL = "https://script.google.com/macros/s/AKfycbxTc61_VACO9Cf42oOnZ6hwT0OpyVT2VIZhmaNq4NQzOP_lnvHHav8Z9864e3mX4J6Fdw/exec";
 
 function updateCounters() {
-  fetch(API_URL)
-    .then(response => response.json())
-    .then(data => {
+  const callbackName = "instagramCounter_" + Date.now();
+
+  window[callbackName] = function(data) {
+    if (data.subscribers !== undefined) {
       document.getElementById("subscriberCount").textContent =
         Number(data.subscribers).toLocaleString() + "+";
+    }
 
+    if (data.followers !== undefined) {
       document.getElementById("instagramCount").textContent =
         Number(data.followers).toLocaleString() + "+";
-    })
-    .catch(error => {
-      console.log("Counter error:", error);
-    });
+    }
+
+    delete window[callbackName];
+    script.remove();
+  };
+
+  const script = document.createElement("script");
+  script.src = API_URL + "?callback=" + callbackName;
+  document.body.appendChild(script);
 }
 
 updateCounters();
